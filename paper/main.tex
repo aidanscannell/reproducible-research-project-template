@@ -1,0 +1,82 @@
+\documentclass{article}
+
+\title{INSERT AWESOME TITLE}
+\author{%
+  Aidan ~Scannell \\
+  Aalto University\\
+  Finnish Center for Artificial Intelligence \\
+  \texttt{aidan.scannell@aalto.fi} \\
+  % examples of more authors
+  % \And
+  % Coauthor \\
+  % Affiliation \\
+  % Address \\
+  % \texttt{email} \\
+}
+
+
+% NeurIPS packages
+\usepackage[preprint,nonatbib]{neurips_2022}
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{xcolor}         % colors
+
+% Bibliography
+\usepackage[maxcitenames=1, maxbibnames=4, doi=false, isbn=false, eprint=true, backend=bibtex, hyperref=true, url=false, style=authoryear-comp]{biblatex}
+\addbibresource{zotero-library.bib}
+
+% Our packages
+\usepackage{todonotes}
+
+% This must be imported last!
+\usepackage{cleveref}
+
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction} \label{sec:intro}
+
+Rember to use
+\begin{verbatim}
+\cite{}
+\end{verbatim}
+for \cite{kamtheDataEfficient2018} and to use
+\begin{verbatim}
+\parencite{}
+\end{verbatim}
+for \parencite{kamtheDataEfficient2018}.
+
+\section*{Acknowledgements}
+
+% \section*{References}
+\small
+\printbibliography
+\normalsize
+% TODO make bibliography small a better way
+
+References follow the acknowledgments. Use unnumbered first-level heading for
+the references. Any choice of citation style is acceptable as long as you are
+consistent. It is permissible to reduce the font size to \verb+small+ (9 point)
+when listing the references.
+Note that the Reference section does not count towards the page limit.
+\medskip
+
+
+
+\appendix
+
+\section{Appendix}
+
+Optionally include extra information (complete proofs, additional experiments and plots) in the appendix.
+This section will often be part of the supplemental material.
+
+
+\end{document}
