@@ -19,7 +19,7 @@
 \usepackage[preprint,nonatbib]{neurips_2022}
 \usepackage[utf8]{inputenc} % allow utf-8 input
 \usepackage[T1]{fontenc}    % use 8-bit T1 fonts
-\usepackage{hyperref}       % hyperlinks
+%\usepackage{hyperref}       % hyperlinks
 \usepackage{url}            % simple URL typesetting
 \usepackage{booktabs}       % professional-quality tables
 \usepackage{amsfonts}       % blackboard math symbols
@@ -33,10 +33,19 @@
 
 % Our packages
 \usepackage{todonotes}
+\usepackage[colorlinks=true,linkcolor=blue,allcolors=blue]{hyperref}
+
+\usepackage{tikz,pgfplots}
+\usepackage{subcaption}
+\usetikzlibrary{}
 
 % This must be imported last!
-\usepackage{cleveref}
+%\usepackage{cleveref}
+\usepackage[capitalise,nameinlink]{cleveref}
 
+% Config for Arno's awesome TikZ plotting stuff
+\newlength{\figurewidth}
+\newlength{\figureheight}
 
 \begin{document}
 
@@ -44,15 +53,57 @@
 
 \section{Introduction} \label{sec:intro}
 
-Rember to use
+\subsection{Generate TikZ Figures from Python}
+We can generate figures in \texttt{.tex} format directly from Python:
 \begin{verbatim}
-\cite{}
+tikzplotlib.save("fig.tex", axis_width="\\figurewidth", axis_height="\\figureheight")
 \end{verbatim}
-for \cite{kamtheDataEfficient2018} and to use
+\cref{fig:example} shows that we get nicely formatted lables/titles/etc when we include them in our paper.
+\begin{figure}[h]
+    \centering\footnotesize
+
+    % Set your figure size here
+    \setlength{\figurewidth}{.33\textwidth}
+    \setlength{\figureheight}{.75\figurewidth}
+
+    % Customize your plot here
+    % (scale only axis applies the size to the axis box and not entire figure)
+    \pgfplotsset{grid style={dotted},title={Foo},scale only axis}
+
+    % Use the subcaption package (= subfigure) for sub-plots, that is
+    % plot the separate plots separately in Python
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \input{../figures/example_fig.tex}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \input{../figures/example_fig.tex}
+    \end{subfigure}
+    \caption{Foo}
+    \label{fig:example}
+\end{figure}
+
+\subsection{Generate Tables from Python}
+We can also generate tables straight from python using \href{https://github.com/astanin/python-tabulate}{tabulate}:
 \begin{verbatim}
-\parencite{}
+table = [["Sun",696000,1989100000],["Earth",6371,5973.6],
+        ["Moon",1737,73.5],["Mars",3390,641.85]]
+headers = ["Planet","R (km)", "mass (x 10^29 kg)"]
+table = tabulate(table, headers=headers, tablefmt="latex")
+with open("../tables/example_table.tex", 'w') as file:
+    file.write(table)
 \end{verbatim}
-for \parencite{kamtheDataEfficient2018}.
+
+\begin{table}[h]
+    \centering
+    \input{../tables/example_table.tex}
+\end{table}
+
+\subsection{Biblatex}
+Rember when using biblatex to use 'citep' for \parencite{kamtheDataEfficient2018} and when using natbib to use 'citet'.
+
 
 \section*{Acknowledgements}
 
