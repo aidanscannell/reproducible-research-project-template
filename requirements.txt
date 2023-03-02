@@ -2,6 +2,9 @@ matplotlib
 numpy
 tabulate
 tikzplotlib
+hydra-core
+hydra-submitit-launcher
+wandb
 
 black
 pre-commit
