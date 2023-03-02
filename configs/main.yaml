@@ -1,0 +1,29 @@
+defaults:
+  - model: default
+
+  # Use slurm on cluster or local?
+  # TODO Edit hydra/launcher/slurm.yaml with slurm configuration
+  # TODO Uncomment this for running on cluster
+  # - override hydra/launcher: slurm
+
+  # Disable logging by Hydra
+  - override hydra/job_logging: none
+  - override hydra/hydra_logging: none
+  - _self_
+
+random_seed: 42
+
+wandb:
+  group: "INSERT-GROUP-NAME" # TODO update this (can be used to auto plot confidence interval over seeds)
+  entity: "INSERT-ENTITY" # TODO update this
+  project: "INSERT-PROJECT-NAME" # TODO update this
+  use_wandb: True
+  run_name: "INSERT-NAME/${random_seed}" # TODO make this better
+  tags:
+    - "random_seed=${random_seed}" # TODO add more tags
+
+hydra:
+  job:
+    chdir: False
+  run:
+    dir: ""

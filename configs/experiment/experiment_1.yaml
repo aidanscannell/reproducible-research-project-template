@@ -1,0 +1,9 @@
+# @package _global_
+wandb:
+  run_name: "experiment_1"
+
+model:
+  _target_: model.AwesomeModel
+  message: "hello world"
+  parameter: 42
+  random_seed: ${random_seed}

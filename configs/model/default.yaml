@@ -1,0 +1,4 @@
+_target_: model.AwesomeModel
+message: "I'm an awesome model"
+parameter: 1
+random_seed: ${random_seed}

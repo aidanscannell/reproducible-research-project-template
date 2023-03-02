@@ -1,0 +1,3 @@
+defaults:
+  - submitit_local
+  # - override hydra/launcher: submitit_local
