@@ -15,6 +15,24 @@ import src.train
 
 ```
 
+## Setup
+Create a virtual environment:
+```sh
+cd /path/to/moderl
+python -m venv VENV-NAME
+source VENV-NAME/bin/activate
+```
+Install project dependencies with:
+```sh
+pip install -r requirements.txt
+```
+
+Install pre-commit with:
+```sh
+pre-commit install
+```
+pre-commit will now auto format all python/yaml files using `black` and `isort` when you commit files.
+
 ### Reproducing experiments
 All [experiments/](./configs/experiment) use the base hydra config in [experiments/configs/main.yaml](experiments/configs/main.yaml).
 Each experiment then overrides specific parts of the config which are detailed in their experiment override configs in [experiments/](experiments/configs/experiment).
