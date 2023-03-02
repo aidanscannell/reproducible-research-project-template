@@ -33,6 +33,7 @@ def train(cfg: omegaconf.DictConfig):
 
     logger.info("Instantiating model")
     model = hydra.utils.instantiate(cfg.model)
+    model()
     logger.info("Successfully instantiated model")
 
     # We can log metrics to WandB

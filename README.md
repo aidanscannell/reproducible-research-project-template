@@ -1,59 +1,42 @@
-# Academic Project Template
+# Reproducible Academic Research Project Template
 
-## TODOs
-- [] Add a link to longer example
-- [] Add a short example
-- [] Add paper citation
 
-### Example
-See INSERT LINK for how to use our method in detail.
-
-A short example:
-```python
-import torch
-import src.train
-
-```
-
-## Setup
-Create a virtual environment:
+## Using this template
+### Reproducing figures
+All figures and tables can be reproduced by running:
 ```sh
-cd /path/to/moderl
-python -m venv VENV-NAME
-source VENV-NAME/bin/activate
+make
 ```
-Install project dependencies with:
-```sh
-pip install -r requirements.txt
-```
+This creates a python virtual environment and installs the dependencies in `requirements.txt`.
+It then runs [./src/figures.py](./src/figures.py) and [./src/tables.py](./src/tables.py) which generates the figures and tables and puts them inside 
+[./paper/fig](./paper/fig) and [./paper/tables](./paper/tables).
 
-Install pre-commit with:
+### Development
+To develop the project pre-commit must be installed with:
 ```sh
 pre-commit install
 ```
 pre-commit will now auto format all python/yaml files using `black` and `isort` when you commit files.
 
 ### Reproducing experiments
-All [experiments/](./configs/experiment) use the base hydra config in [experiments/configs/main.yaml](experiments/configs/main.yaml).
-Each experiment then overrides specific parts of the config which are detailed in their experiment override configs in [experiments/](experiments/configs/experiment).
+All experiments use the base hydra config in [configs/main.yaml](configs/main.yaml).
+Each experiment then overrides specific parts of the config which are detailed in their experiment override configs in [experiments/](configs/experiment/).
 
 You can display the base config using:
 ``` shell
 python train.py --cfg=job
 ```
-An experiment's config can be viewed with:
+Run an experiment with:
 ``` shell
-python train.py +experiment=INSERT_EXPERIMENT_NAME --cfg=job
+python train.py +experiment=experiment_1
 ```
-
-
-To reproduce the experiments of the paper can be found in the [`experiments` folder](./experiments). Check the folder for details.
-```sh
-python train.py 
+Sweep over a set of random seeds with:
+``` shell
+python train.py --multirun ++random_seed=42,1,5,100
 ```
 
 ### Build PDF
-The paper can be built using our `Makefile`:
+The paper can be built using the `Makefile` in the [paper/](./paper/) directory.
 ```sh
 make paper
 ```
@@ -63,10 +46,28 @@ Alternately, make the figures with:
 make figures
 ```
 
+## Things to put in final README
+### Project TODOs
+- [] Add a link to longer example
+- [] Update a short example
+- [] Update paper citation
+
+### Example
+See INSERT LINK for how to use our method in detail.
+
+A short example:
+```python
+# TODO update this
+import torch
+
+print("Hello world")
+```
+
+
 ### Citation
 ```bibtex
 @article{XXX,
-    title={{F}ast {U}pdates for {M}odel-based {R}einforcement {Learning}
+    title={Insert awesome title,
     author={Scannell, Aidan},
     journal={Advances in Neural Information Processing Systems},
     year={2023}
