@@ -2,6 +2,9 @@
 .idea
 *.log
 tmp/
+.venv
+wandb
+.hydra
 
 *.py[cod]
 *.egg
