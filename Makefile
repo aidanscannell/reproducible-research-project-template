@@ -9,12 +9,12 @@ PYTHON = $(VENV)/bin/python3
 PIP = $(VENV)/bin/pip
 
 media: $(VENV)/bin/activate
-	$(PYTHON) src/figures.py --save_dir="./${PAPER_DIR}/fig"
+	$(PYTHON) src/figures.py --save_dir="./${PAPER_DIR}/figs"
 	$(PYTHON) src/tables.py --save_dir="./${PAPER_DIR}/tables"
 
 all: $(VENV)/bin/activate
 	$(PYTHON) src/train.py
-	$(PYTHON) src/figures.py --save_dir="./${PAPER_DIR}/fig"
+	$(PYTHON) src/figures.py --save_dir="./${PAPER_DIR}/figs"
 	$(PYTHON) src/tables.py --save_dir="./${PAPER_DIR}/tables"
 
 run: $(VENV)/bin/activate
@@ -25,7 +25,7 @@ $(VENV)/bin/activate: requirements.txt
 	$(PIP) install -r requirements.txt
 
 figures: $(VENV)/bin/activate
-	$(PYTHON) src/figures.py --save_dir="./${PAPER_DIR}/fig"
+	$(PYTHON) src/figures.py --save_dir="./${PAPER_DIR}/figs"
 
 tables: $(VENV)/bin/activate
 	$(PYTHON) src/tables.py --save_dir="./${PAPER_DIR}/tables"
