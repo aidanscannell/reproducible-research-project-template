@@ -74,12 +74,12 @@ tikzplotlib.save("fig.tex", axis_width="\\figurewidth", axis_height="\\figurehei
     % plot the separate plots separately in Python
     \begin{subfigure}{.4\textwidth}
         \centering
-        \input{../figures/example_fig.tex}
+        \input{./fig/example_fig.tex}
     \end{subfigure}
     \hfill
     \begin{subfigure}{.4\textwidth}
         \centering
-        \input{../figures/example_fig.tex}
+        \input{./fig/example_fig.tex}
     \end{subfigure}
     \caption{Foo}
     \label{fig:example}
@@ -92,17 +92,17 @@ table = [["Sun",696000,1989100000],["Earth",6371,5973.6],
         ["Moon",1737,73.5],["Mars",3390,641.85]]
 headers = ["Planet","R (km)", "mass (x 10^29 kg)"]
 table = tabulate(table, headers=headers, tablefmt="latex")
-with open("../tables/example_table.tex", 'w') as file:
+with open("table.tex", 'w') as file:
     file.write(table)
 \end{verbatim}
 
 \begin{table}[h]
     \centering
-    \input{../tables/example_table.tex}
+    \input{./tables/example_table.tex}
 \end{table}
 
 \subsection{Biblatex}
-Rember when using biblatex to use 'citep' for \parencite{kamtheDataEfficient2018} and when using natbib to use 'citet'.
+Rember when using biblatex to use 'parencite' for \parencite{kamtheDataEfficient2018} and when using natbib to use 'citep'.
 
 
 \section*{Acknowledgements}
