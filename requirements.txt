@@ -1,0 +1,11 @@
+matplotlib
+numpy
+tabulate
+tikzplotlib
+
+black
+pre-commit
+pyright
+isort
+pyflakes
+pytest
