@@ -5,7 +5,7 @@ Running `make all` in the top level directory should:
 2. (optional) run all experiments
 3. make figures for paper (as `.tex` files straight from python)
 4. make tables for paper (as `.tex` files straight from python)
-4. build `paper.pdf`
+4. build `main.pdf`
 
 As running the experiments (step 2) can take a long time, it is often better to setup the experiments to run separately with:
 ```sh
@@ -38,6 +38,8 @@ These are some of my favourite tools. See the links for more information on how 
 4. Create LaTeX tables directly in python using [tabulate](https://github.com/astanin/python-tabulate) and save them as `.tex` files.
     - Now when you need to re run experiments you don't need to manually update tables in your main `LaTeX` file.
     - Agian, thanks to Arno Solin for showing me this!
+5. GitHub action builds `main.pdf` from [`main.tex`](./paper/main.tex),
+    - This doesn't run the code or make the figures, it just builds the pdf.
 
 ## Development
 If you want to make changes to the code in [src/](.src/) you should install `pre-commit` with:

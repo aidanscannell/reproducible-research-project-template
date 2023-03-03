@@ -9,7 +9,7 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: paper.tex
+          root_file: main.tex
           # args: -f -pdf -file-line-error -halt-on-error -interaction=nonstopmode
           args: -f -pdf -interaction=nonstopmode
           working_directory: ./paper
