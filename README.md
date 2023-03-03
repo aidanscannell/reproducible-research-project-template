@@ -39,7 +39,7 @@ These are some of my favourite tools. See the links for more information on how 
     - Now when you need to re run experiments you don't need to manually update tables in your main `LaTeX` file.
     - Agian, thanks to Arno Solin for showing me this!
 5. GitHub action builds `main.pdf` from [`main.tex`](./paper/main.tex),
-    - This doesn't run the code or make the figures, it just builds the pdf.
+    - This doesn't run the code or make the figures, it just builds the pdf and uploads it as an artifact.
 
 ## Development
 If you want to make changes to the code in [src/](.src/) you should install `pre-commit` with:
