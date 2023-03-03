@@ -11,7 +11,7 @@ Once the figures and tables have been generated, the paper can be built using th
 
 
 ### Development
-To develop the project pre-commit must be installed with:
+If you want to make changes to the code in [src/](.src/) you should install `pre-commit` with:
 ```sh
 pre-commit install
 ```
@@ -24,6 +24,7 @@ This avoids the issue of having file changes due to each collaborator having dif
 - [] Add a longer example
 - [] Update paper citation
 - [] Add details for running all experiments
+- [] At end of project run `pip freeze > requirements.txt` to pip the projects dependencies
 
 ### Example
 See INSERT LINK for how to use our method in detail.
