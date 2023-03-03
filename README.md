@@ -26,16 +26,16 @@ This runs [./src/figures.py](./src/figures.py) and [./src/tables.py](./src/table
 ## Powerful tools in this template
 These are some of my favourite tools. See the links for more information on how to use them.
 1. Experiment configuration with [hydra](https://hydra.cc/),
-    - Use it to [instantiate objects](https://hydra.cc/docs/advanced/instantiate_objects/overview/) from `yaml` configs,
-    - Use it to easily sweep over parameters and random seeds,
+    - Use it to [instantiate objects](https://hydra.cc/docs/advanced/instantiate_objects/overview/) from `yaml` configs.
+    - Use it to easily sweep over parameters and random seeds.
     - Use it to deploy experiments in parallel on a cluster using [submitit](https://hydra.cc/docs/plugins/submitit_launcher/) and [multirun](https://hydra.cc/docs/intro/#multirun).
 2. Experiment tracking with Weights & Biases,
     - Weights & Biases can log experiments running on a cluster so you can easily see them in your browser (with minimal set up).
-3. Use [tikzplotlib](https://github.com/nschloe/tikzplotlib) to save figures as `.tex` files (instead of `pdf`/`png`) so that axis labels, titles and so on, are formatted using your LaTeX style,
+3. Use [tikzplotlib](https://github.com/nschloe/tikzplotlib) to directly save figures in python as `.tex` files (instead of `pdf`/`png`) so that axis labels, titles and so on, are formatted using your LaTeX style,
     - You also get the added benefit that you can easily edit the `.tex` file if you want to make changes to your plot (e.g. axis lables).
     That is, you don't need to re run your python code.
     - Thanks to Arno Solin for showing me this!
-4. Create LaTeX table directly in python using [tabulate](https://github.com/astanin/python-tabulate) and save them as `.tex` files.
+4. Create LaTeX tables directly in python using [tabulate](https://github.com/astanin/python-tabulate) and save them as `.tex` files.
     - Now when you need to re run experiments you don't need to manually update tables in your main `LaTeX` file.
     - Agian, thanks to Arno Solin for showing me this!
 
