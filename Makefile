@@ -8,7 +8,7 @@ VENV = .venv
 PYTHON = $(VENV)/bin/python3
 PIP = $(VENV)/bin/pip
 
-${FILENAME}: media
+${FILENAME}.pdf: media
 	cd paper && latexmk -pdf -interaction=nonstopmode -auxdir=${AUX_DIR} -outdir=${AUX_DIR} ${FILENAME}.tex
 	cd paper && mv ${AUX_DIR}/${FILENAME}.pdf ${FILENAME}.pdf
 
