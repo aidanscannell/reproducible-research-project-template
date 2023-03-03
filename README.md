@@ -66,14 +66,14 @@ python train.py +experiment=experiment_1
 ```
 Ideally, all experiments can be run in paralell (on a cluster) with:
 ``` shell
-python train.py  --multirun '+experiment=glob(*)'
+python train.py  --multirun +experiment=glob(*)
 ```
 Note that we can sweep over config value using hydra, for example, we can sweep over a set of random seeds with:
 ``` shell
 python train.py --multirun ++random_seed=42,1,5,100
 ```
-However, the best thing to do is to specify the sweeps directly in an experiments config.
-For example, we can we sweep over `models.AwesomeModel`'s parameter argument and it's random seed with the [following config](./configs/experiment/sweep_over_models_parameter_and_seed):
+However, the best thing to do is to specify the sweeps directly in an experiment's config.
+For example, we can we sweep over `models.AwesomeModel`'s `parameter` argument and it's `random_seed`` with the [following config](./configs/experiment/sweep_over_models_parameter_and_seed.yaml):
 ``` yaml
 # @package _global_
 hydra:
@@ -82,10 +82,6 @@ hydra:
       mode.parameter: 1,2,3,4,5
       random_seed: 1,42,69,50,100
 ```
-
-
-
-
 
 
 ### Citation
