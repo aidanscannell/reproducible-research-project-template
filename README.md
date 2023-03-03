@@ -1,13 +1,23 @@
 # Reproducible Academic Research Project Template
 This repository contains as a basic template for making a reproducible research paper.
-Running `make` in the top level directory should:
-1. make a python virtual environment and install dependencies
+Running `make all` in the top level directory should:
+1. make a python virtual environment and install dependencies in `requirements.txt`
 2. (optional) run all experiments
 3. make figures for paper (as `.tex` files straight from python)
 4. make tables for paper (as `.tex` files straight from python)
+4. build the `paper.pdf`
 
 As running the experiments (step 2) can take a long time, it is often better to setup the experiments to run separately with `make run`.
-Once the figures and tables have been generated, the paper can be built using the `Makefile` in the [paper/](./paper/) directory.
+The figures/tables/paper (without running experiments) can be made with:
+```sh
+make paper
+```
+All figures and tables can be reproduced with:
+```sh
+make media
+```
+This runs [./src/figures.py](./src/figures.py) and [./src/tables.py](./src/tables.py) which generates the figures and tables and puts them inside 
+[./paper/figs](./paper/fig) and [./paper/tables](./paper/tables).
 
 
 ### Development
@@ -54,14 +64,6 @@ Sweep over a set of random seeds with:
 python train.py --multirun ++random_seed=42,1,5,100
 ```
 
-### Reproducing figures
-All figures and tables can be reproduced by running:
-```sh
-make
-```
-This creates a python virtual environment and installs the dependencies in `requirements.txt`.
-It then runs [./src/figures.py](./src/figures.py) and [./src/tables.py](./src/tables.py) which generates the figures and tables and puts them inside 
-[./paper/figs](./paper/fig) and [./paper/tables](./paper/tables).
 
 
 ### Citation
