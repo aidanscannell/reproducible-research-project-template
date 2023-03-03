@@ -11,6 +11,7 @@ As running the experiments (step 2) can take a long time, it is often better to 
 ```sh
 make run
 ```
+And perhaps this should be run on a cluster...
 The figures/tables/paper (without running experiments) can then be made with:
 ```sh
 make paper
