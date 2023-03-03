@@ -34,8 +34,9 @@ tables: $(VENV)/bin/activate
 clean:
 	rm -rf __pycache__
 	rm -rf $(VENV)
+  rm ${PAPER_DIR}/${AUX_DIR}
 
-submission: ${FILENAME}.pdf
+submission:
 	gs -sDEVICE=pdfwrite -dNOPAUSE -dBATCH -dSAFER -dPrinted=false -dFirstPage=1 -dLastPage=13 -sOutputFile=submission.pdf ${FILENAME}.pdf
 
 appendix: ${FILENAME}.pdf

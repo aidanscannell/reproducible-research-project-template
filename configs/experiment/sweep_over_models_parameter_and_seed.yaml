@@ -1,0 +1,6 @@
+# @package _global_
+hydra:
+  sweeper:
+    params:
+      mode.parameter: 1,2,3,4,5
+      random_seed: 1,42,69,50,100
