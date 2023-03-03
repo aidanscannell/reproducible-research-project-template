@@ -73,7 +73,7 @@ Note that we can sweep over config value using hydra, for example, we can sweep 
 python train.py --multirun ++random_seed=42,1,5,100
 ```
 However, the best thing to do is to specify the sweeps directly in an experiment's config.
-For example, we can we sweep over `models.AwesomeModel`'s `parameter` argument and it's `random_seed`` with the [following config](./configs/experiment/sweep_over_models_parameter_and_seed.yaml):
+For example, we can we sweep over `models.AwesomeModel`'s `parameter` argument and it's `random_seed` with the [following config](./configs/experiment/sweep_over_models_parameter_and_seed.yaml):
 ``` yaml
 # @package _global_
 hydra:
