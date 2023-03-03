@@ -12,7 +12,7 @@ ${FILENAME}.pdf: media
 	cd paper && latexmk -pdf -interaction=nonstopmode -auxdir=${AUX_DIR} -outdir=${AUX_DIR} ${FILENAME}.tex
 	cd paper && mv ${AUX_DIR}/${FILENAME}.pdf ${FILENAME}.pdf
 
-paper: ${FILENAME}
+paper: ${FILENAME}.pdf
 
 media: figures tables
 
@@ -34,7 +34,7 @@ tables: $(VENV)/bin/activate
 clean:
 	rm -rf __pycache__
 	rm -rf $(VENV)
-  rm ${PAPER_DIR}/${AUX_DIR}
+	rm ${PAPER_DIR}/${AUX_DIR}
 
 submission:
 	gs -sDEVICE=pdfwrite -dNOPAUSE -dBATCH -dSAFER -dPrinted=false -dFirstPage=1 -dLastPage=13 -sOutputFile=submission.pdf ${FILENAME}.pdf
