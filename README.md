@@ -34,11 +34,11 @@ This avoids the issue of having file changes due to each collaborator having dif
 
 
 ### TODO before finishing project
-- [] Update the short example
-- [] Add a longer example (perhaps a jupyter notebook)
-- [] Update paper citation
-- [] Add details for running all experiments
-- [] At end of project run `pip freeze > requirements.txt` to pin the projects dependencies
+- [ ] Update the short example
+- [ ] Add a longer example (perhaps a jupyter notebook)
+- [ ] Update paper citation
+- [ ] Add details for running all experiments
+- [ ] At end of project run `pip freeze > requirements.txt` to pin the projects dependencies
 
 ### Example
 See INSERT LINK for how to use our method in detail.
@@ -52,6 +52,7 @@ print("Hello world")
 ```
 
 ### Reproducing experiments
+Note that [src/train.py](src/train.py) uses [Weights and Biases](https://wandb.ai/site) for tracking experiments.
 All experiments use the base hydra config in [configs/main.yaml](configs/main.yaml).
 Each experiment then overrides specific parts of the config which are detailed in their experiment override configs in [experiments/](configs/experiment/).
 
@@ -63,11 +64,27 @@ Run an experiment with:
 ``` shell
 python train.py +experiment=experiment_1
 ```
-Sweep over a set of random seeds with:
+Ideally, all experiments can be run in paralell (on a cluster) with:
+``` shell
+python train.py  --multirun '+experiment=glob(*)'
+```
+Note that we can sweep over config value using hydra, for example, we can sweep over a set of random seeds with:
 ``` shell
 python train.py --multirun ++random_seed=42,1,5,100
 ```
-Note that [src/train.py](src/train.py) uses [Weights and Biases](https://wandb.ai/site) for tracking experiments.
+However, the best thing to do is to specify the sweeps directly in an experiments config.
+For example, we can we sweep over `models.AwesomeModel`'s parameter argument and it's random seed with the [following config](./configs/experiment/sweep_over_models_parameter_and_seed):
+``` yaml
+# @package _global_
+hydra:
+  sweeper:
+    params:
+      mode.parameter: 1,2,3,4,5
+      random_seed: 1,42,69,50,100
+```
+
+
+
 
 
 
