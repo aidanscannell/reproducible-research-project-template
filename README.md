@@ -1,4 +1,4 @@
-# Reproducible Academic Research Project Template
+# Template for Reproducible ML Research Paper
 This repository contains a basic template for making a reproducible research paper.
 Running `make all` in the top level directory should:
 1. make a python virtual environment and install dependencies in `requirements.txt`
@@ -23,8 +23,23 @@ make media
 This runs [./src/figures.py](./src/figures.py) and [./src/tables.py](./src/tables.py) which generates the figures and tables and puts them inside 
 [./paper/figs](./paper/fig) and [./paper/tables](./paper/tables).
 
+## Powerful tools in this template
+These are some of my favourite tools. See the links for more information on how to use them.
+1. Experiment configuration with [hydra](https://hydra.cc/),
+    - Use it to [instantiate objects](https://hydra.cc/docs/advanced/instantiate_objects/overview/) from `yaml` configs,
+    - Use it to easily sweep over parameters and random seeds,
+    - Use it to deploy experiments in parallel on a cluster using [submitit](https://hydra.cc/docs/plugins/submitit_launcher/) and [multirun](https://hydra.cc/docs/intro/#multirun).
+2. Experiment tracking with Weights & Biases,
+    - Weights & Biases can log experiments running on a cluster so you can easily see them in your browser, i.e. with minimal set up.
+3. Save figures as `.tex` files (instead of `pdf`/`png`) so that axis labels, titles and so on, are formatted using your LaTeX style,
+    - You also get the added benefit that you can easily edit the `.tex` file if you want to make changes to your plot (e.g. axis lables).
+    That is, you don't need to re run your python code.
+    - Thanks to Arno Solin for showing me this!
+4. Create LaTeX table directly in python using [tabulate](https://github.com/astanin/python-tabulate) and save them as `.tex` files.
+    - Now when you need to re run experiments you don't need to manually update tables in your main `LaTeX` file.
+    - Agian, thanks to Arno Solin for showing me this!
 
-### Development
+## Development
 If you want to make changes to the code in [src/](.src/) you should install `pre-commit` with:
 ```sh
 pre-commit install
@@ -33,14 +48,14 @@ pre-commit allows us to auto format all python/yaml files using `black` and `iso
 This avoids the issue of having file changes due to each collaborator having different formatting  settings.
 
 
-### TODO before finishing project
+## TODO before finishing project
 - [ ] Update the short example
 - [ ] Add a longer example (perhaps a jupyter notebook)
 - [ ] Update paper citation
 - [ ] Add details for running all experiments
 - [ ] At end of project run `pip freeze > requirements.txt` to pin the projects dependencies
 
-### Example
+## Example
 See INSERT LINK for how to use our method in detail.
 
 A short example:
@@ -51,7 +66,7 @@ import torch
 print("Hello world")
 ```
 
-### Reproducing experiments
+## Reproducing experiments
 Note that [src/train.py](src/train.py) uses [Weights and Biases](https://wandb.ai/site) for tracking experiments.
 All experiments use the base hydra config in [configs/main.yaml](configs/main.yaml).
 Each experiment then overrides specific parts of the config which are detailed in their experiment override configs in [experiments/](configs/experiment/).
@@ -84,7 +99,7 @@ hydra:
 ```
 
 
-### Citation
+## Citation
 ```bibtex
 @article{XXX,
     title={Insert awesome title,
