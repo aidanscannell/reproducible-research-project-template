@@ -24,7 +24,7 @@ This avoids the issue of having file changes due to each collaborator having dif
 - [] Add a longer example
 - [] Update paper citation
 - [] Add details for running all experiments
-- [] At end of project run `pip freeze > requirements.txt` to pip the projects dependencies
+- [] At end of project run `pip freeze > requirements.txt` to pin the projects dependencies
 
 ### Example
 See INSERT LINK for how to use our method in detail.
