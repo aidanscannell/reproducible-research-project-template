@@ -7,7 +7,10 @@ Running `make all` in the top level directory should:
 4. make tables for paper (as `.tex` files straight from python)
 4. build the `paper.pdf`
 
-As running the experiments (step 2) can take a long time, it is often better to setup the experiments to run separately with `make run`.
+As running the experiments (step 2) can take a long time, it is often better to setup the experiments to run separately with:
+```sh
+make run
+```
 The figures/tables/paper (without running experiments) can then be made with:
 ```sh
 make paper
