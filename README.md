@@ -5,7 +5,8 @@ Running `make` in the top level directory should:
 2. (optional) run all experiments
 3. make figures for paper (as `.tex` files straight from python)
 4. make tables for paper (as `.tex` files straight from python)
-However, running the experiments (step 2) can take a long time so can be run separately with `make run`.
+
+As running the experiments (step 2) can take a long time, it is often better to setup the experiments to run separately with `make run`.
 Once the figures and tables have been generated, the paper can be built using the `Makefile` in the [paper/](./paper/) directory.
 
 
