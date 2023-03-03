@@ -1,5 +1,5 @@
 # Reproducible Academic Research Project Template
-This repository contains as a basic template for making a reproducible research paper.
+This repository contains a basic template for making a reproducible research paper.
 Running `make all` in the top level directory should:
 1. make a python virtual environment and install dependencies in `requirements.txt`
 2. (optional) run all experiments
@@ -8,7 +8,7 @@ Running `make all` in the top level directory should:
 4. build the `paper.pdf`
 
 As running the experiments (step 2) can take a long time, it is often better to setup the experiments to run separately with `make run`.
-The figures/tables/paper (without running experiments) can be made with:
+The figures/tables/paper (without running experiments) can then be made with:
 ```sh
 make paper
 ```
