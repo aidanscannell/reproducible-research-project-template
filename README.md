@@ -5,7 +5,7 @@ Running `make all` in the top level directory should:
 2. (optional) run all experiments
 3. make figures for paper (as `.tex` files straight from python)
 4. make tables for paper (as `.tex` files straight from python)
-4. build the `paper.pdf`
+4. build `paper.pdf`
 
 As running the experiments (step 2) can take a long time, it is often better to setup the experiments to run separately with:
 ```sh
@@ -34,7 +34,7 @@ This avoids the issue of having file changes due to each collaborator having dif
 
 ### TODO before finishing project
 - [] Update the short example
-- [] Add a longer example
+- [] Add a longer example (perhaps a jupyter notebook)
 - [] Update paper citation
 - [] Add details for running all experiments
 - [] At end of project run `pip freeze > requirements.txt` to pin the projects dependencies
@@ -66,6 +66,7 @@ Sweep over a set of random seeds with:
 ``` shell
 python train.py --multirun ++random_seed=42,1,5,100
 ```
+Note that [src/train.py](src/train.py) uses [Weights and Biases](https://wandb.ai/site) for tracking experiments.
 
 
 
@@ -74,7 +75,7 @@ python train.py --multirun ++random_seed=42,1,5,100
 @article{XXX,
     title={Insert awesome title,
     author={Scannell, Aidan},
-    journal={Advances in Neural Information Processing Systems},
+    journal={Awesome venue},
     year={2023}
 }
 ```
